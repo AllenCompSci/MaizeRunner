@@ -3,7 +3,7 @@
 --------------------------------
    Change Log:
 --------------------------------
-  1/25/2017 Custom textures created and added in working code
+  1/25/2017 Custom textures created (Connor) and added in working code (Austin)
             v0 pre-alpha
   1/27/2017 Beginning cutscene created and implemented
               *not yet working*
