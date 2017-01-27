@@ -1,4 +1,12 @@
 # The-Maize-runnner
+Created by Connor and Austin in 2017
+For licence info check licence.md
+
+
+
+
+
+
 
 --------------------------------
    Change Log:
