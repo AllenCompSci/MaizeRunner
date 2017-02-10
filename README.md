@@ -16,7 +16,8 @@ For licence info check licence.md
   1/27/2017 Beginning cutscene created and implemented
               *not yet working*
             v0.1 pre-alpha
-
+  2/10/2017 Stuff happened call 1-800-969-3640 for more info
+  
 --------------------------------
    Current Issues:
 --------------------------------              
