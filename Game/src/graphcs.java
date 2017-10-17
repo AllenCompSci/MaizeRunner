@@ -17,7 +17,6 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
     private boolean isRunning, isDone;
     private Image imgBuffer;
     private BufferedImage Alien, Cool_Ranch_Dorito, Corn_Stalks, Nacho_Dorito, Player;
-    //private TexturePaint stoneOcta, grassOcta, dirty;
     private boolean change;
     @SuppressWarnings("unused")
     private Color BROWN;
@@ -34,16 +33,13 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
 
         try {
 
-
-            Alien = ImageIO.read(this.getClass().getResource("Alien.png"));
+            //Sets variables for images
+            Alien = ImageIO.read(this.getClass().getResource("Alien.png")); 
             Cool_Ranch_Dorito = ImageIO.read(this.getClass().getResource("Cool_Ranch_Dorito.png"));
             Corn_Stalks = ImageIO.read(this.getClass().getResource("Corn_Stalks.png"));
             Nacho_Dorito = ImageIO.read(this.getClass().getResource("Nacho_Dorito.png"));
             Player = ImageIO.read(this.getClass().getResource("Player.png"));
-            //grassOcta = new TexturePaint(Alien, new Rectangle(0, 0, 90, 60));
-            //stoneOcta = new TexturePaint(Cool_Ranch_Dorito, new Rectangle(0, 0, 90, 60));
-            //dirty = new TexturePaint(Corn_Stalks, new Rectangle(0, 0, 50, 50));
-
+            
 
         } catch (IOException ex) {
 
@@ -57,7 +53,7 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
         setChange(true);
         current = new Point(35,70);
          
-        //myRect = new Rectangle((int)current.getX(), (int)current.getY(), 23, 80); // x,y,h,w to move just change x and y
+        
         BROWN = new Color(139,69,19);
         frame = new JFrame();
         frame.addKeyListener(this);
@@ -81,7 +77,7 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent e) {
         int Key;
-        Key = e.getKeyCode();
+        Key = e.getKeyCode(); //Determines what key was pressed
 
 
         if(Key == KeyEvent.VK_UP){ // UP
@@ -92,7 +88,7 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
                 myRect.setLocation((int) myRect.getX(), 30);
             }
         }
-        else if(Key == KeyEvent.VK_LEFT){
+        else if(Key == KeyEvent.VK_LEFT){ //left
             if(myRect.getX()>10) {
                 myRect.setLocation((int) myRect.getX() - 10, (int) myRect.getY());
             }
@@ -108,7 +104,7 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
                 myRect.setLocation((int) myRect.getX(), (int)(720-myRect.getHeight()-10));
             }
         }
-        else if(Key == KeyEvent.VK_RIGHT){
+        else if(Key == KeyEvent.VK_RIGHT){ //right
             if(myRect.getX()<(int)(1280-myRect.getWidth()-10)) {
                 myRect.setLocation((int) myRect.getX() + 10, (int) myRect.getY());
             }
@@ -154,14 +150,14 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
     }
 
     @Override
-    public void windowClosing(WindowEvent e) {
+    public void windowClosing(WindowEvent e) { //what happens as the window is closing
         frame.setVisible(false);
         frame.dispose();
         isRunning = false;
     }
 
     @Override
-    public void windowClosed(WindowEvent e) {
+    public void windowClosed(WindowEvent e) { //What happens when the window closes
         while(true){
 
             if(isDone){
@@ -225,11 +221,11 @@ class graphics implements Runnable, KeyListener, WindowListener, MouseListener {
         g2d.setColor(Color.PINK);
         Stroke old = g2d.getStroke();
         g2d.setStroke(new BasicStroke(3));
-        g2d.draw(myRect);
+        g2d.draw(myRect); //draws a rectangle
         g2d.setStroke(old);
         if(isRunning)
             g2d = (Graphics2D) frame.getGraphics();
-        g2d.drawImage(imgBuffer, 0,  0, SIZE.width, SIZE.height, 0, 0, SIZE.width, SIZE.height, null);
-        g2d.dispose();
+        g2d.drawImage(imgBuffer, 0,  0, SIZE.width, SIZE.height, 0, 0, SIZE.width, SIZE.height, null); //draws to the screen the whole image
+        g2d.dispose(); //clears the image from the memory
     }
 }
